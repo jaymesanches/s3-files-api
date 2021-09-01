@@ -12,8 +12,8 @@ public class FileService {
 		var s3 = new S3();
 		s3.salvar(file);
 	}
-	
-	public List<String> listarBuckets(){
+
+	public List<String> listarBuckets() {
 		var s3 = new S3();
 		return s3.listarBuckets();
 	}
