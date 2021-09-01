@@ -10,27 +10,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import br.com.s3files.api.service.FileService;
+import br.com.s3files.api.service.S3;
 
 @RestController
 @RequestMapping("/files")
 public class FileUploadResource {
 	
-	private FileService fileService;
-	
 	@Autowired
-	public FileUploadResource(FileService fileService) {
-		this.fileService = fileService;
-	}
+	private S3 s3;
 	
 	@PostMapping
 	public void upload(@RequestParam("file") MultipartFile file) {
 		System.out.println(file);
-		this.fileService.salvar(file);
+		s3.salvar(file);
 	}
 
 	@GetMapping
 	public List<String> list() {
-		return this.fileService.listarBuckets();
+		return s3.listarBuckets();
 	}
 }

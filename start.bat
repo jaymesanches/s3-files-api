@@ -1,0 +1,1 @@
+java -jar .\s3-files-api-0.0.1-SNAPSHOT.jar --s3files.s3.accessKey="ABC" --s3files.s3.secretKey="abcd"
